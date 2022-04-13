@@ -1,0 +1,47 @@
+version: "2"
+services:
+  mongodb:
+    extends: 
+      file: "packages/ev-server/docker/docker-compose-local-env.yml"
+      service: mongodb
+
+  server:
+    extends: 
+      file: "packages/ev-server/docker/docker-compose-server-standalone.yml"
+      service: server-standalone
+    volumes:
+      - ./ev-server-config.json:/config/config.json
+
+  dashboard:
+    extends: 
+      file: "packages/ev-dashboard/docker/docker-compose.yml"
+      service: dashboard
+    volumes:
+      - ./ev-dashboard-config.json://usr/share/nginx/html/assets/config.json
+  
+  ev-simulator:
+    extends:
+      file: "packages/ev-simulator/docker/docker-compose.yml"
+      service: "ev-simulator"
+
+  emobility-smart-charging:
+    build:
+      context: "packages/emobility-smart-charging"
+
+  enablereplset:
+    extends:
+      file: "packages/ev-server/docker/docker-compose-local-env.yml"
+      service: enablereplset
+
+  mailserver:
+    extends:
+      file: "packages/ev-server/docker/docker-compose-local-env.yml"
+      service: mailserver
+
+networks:
+  ev_network:
+    driver: bridge
+
+volumes:
+  mongo-data: {}
+

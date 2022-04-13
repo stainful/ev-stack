@@ -1,0 +1,12 @@
+[submodule "packages/ev-server"]
+	path = packages/ev-server
+	url = git@github.com:sap-labs-france/ev-server.git
+[submodule "packages/emobility-smart-charging"]
+	path = packages/emobility-smart-charging
+	url = git@github.com:sap-labs-france/emobility-smart-charging.git
+[submodule "packages/ev-simulator"]
+	path = packages/ev-simulator
+	url = git@github.com:sap-labs-france/ev-simulator.git
+[submodule "packages/ev-dashboard"]
+	path = packages/ev-dashboard
+	url = git@github.com:sap-labs-france/ev-dashboard.git
