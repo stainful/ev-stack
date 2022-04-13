@@ -7,10 +7,28 @@
     "url": "https://ev-database.org/export_v26/74964691",
     "key": ""
   },
+  "CentralSystems": [
+    {
+      "type": "ocpp",
+      "implementation": "soap",
+      "protocol": "http",
+      "host": "server",
+      "port": 8000,
+      "debug": false
+    },
+    {
+      "type": "ocpp",
+      "implementation": "json",
+      "protocol": "ws",
+      "host": "server",
+      "port": 8010,
+      "debug": false
+    }
+  ],
   "CentralSystemRestService": {
     "protocol": "http",
     "host": "server",
-    "port": 80,
+    "port": 81,
     "userTokenKey": "s3A9js135sdf384hgj384ku38lilckjflskdjf2797boeiBhxQDM1GInRith",
     "userTokenLifetimeHours": 12,
     "userDemoTokenLifetimeDays": 365,
@@ -25,6 +43,23 @@
     "protocol": "http",
     "host": "localhost",
     "port": 3080
+  },
+  "CentralSystemServer": {
+    "protocol": "http",
+    "host": "server",
+    "port": 81
+  },
+  "OCPIService": {
+    "protocol": "http",
+    "host": "server",
+    "port": 9090,
+    "debug": false
+  },
+  "ODataService": {
+    "protocol": "http",
+    "host": "server",
+    "port": 9292,
+    "debug": false
   },
   "WSDLEndpoint": {
     "baseSecureUrl": "http://server:8000"
@@ -120,7 +155,7 @@
         "active": false,
         "periodicity": "0 3 * * *",
         "config": {
-          "onlyProcessUnpaidInvoices": true
+          "onlyProcessUnpaidInvoices": false
         }
       },
       {
@@ -194,15 +229,15 @@
         "config": {}
       },
       {
-        "name": "OCPIPushTokensTask",
-        "active": true,
-        "periodicity": "0 0 1 * *"
-      },
-      {
         "name": "OCPIPullTokensTask",
         "active": false,
         "periodicity": "0 2 * * *",
         "config": {}
+      },
+      {
+        "name": "OCPIPushTokensTask",
+        "active": true,
+        "periodicity": "0 0 1 * *"
       },
       {
         "name": "OCPIPullSessionsTask",

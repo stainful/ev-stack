@@ -7,8 +7,8 @@ services:
 
   server:
     extends: 
-      file: "packages/ev-server/docker/docker-compose-server-standalone.yml"
-      service: server-standalone
+      file: "packages/ev-server/docker/docker-compose-server.yml"
+      service: server
     volumes:
       - ./ev-server-config.json:/config/config.json
 
